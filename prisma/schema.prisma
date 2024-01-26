@@ -11,88 +11,79 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-model user {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
 // schema.prisma
 
-// model Elev {
-//   eId          Int          @id @default(autoincrement())
-//   fNavn        String
-//   eNavn        String
-//   epost        String
-//   passord      String
-//   fravaer      Fravaer[]
-//   anmerkninger Anmerkning[]
-//   elevFag      ElevFag[]
+model Elev {
+  eId          Int          @id @default(autoincrement())
+  fNavn        String
+  eNavn        String
+  epost        String
+  passord      String
+  fravaer      Fravaer[]
+  anmerkninger Anmerkning[]
+  elevFag      ElevFag[]
 
-//   @@map("elev")
-// }
+  @@map("elev")
+}
 
-// model Laerer {
-//   lId     Int    @id @default(autoincrement())
-//   fNavn   String
-//   eNavn   String
-//   epost   String
-//   passord String
-//   fag     Fag[]
+model Laerer {
+  lId     Int    @id @default(autoincrement())
+  fNavn   String
+  eNavn   String
+  epost   String
+  passord String
+  fag     Fag[]
 
-//   @@map("laerer")
-// }
+  @@map("laerer")
+}
 
-// model Karakter {
-//   kId           Int    @id @default(autoincrement())
-//   karakter      Int
-//   beskrivelse   String
-//   maaalopnaelse String
-//   fag           Fag[]
+model Karakter {
+  kId           Int    @id @default(autoincrement())
+  karakter      Int
+  beskrivelse   String
+  maaalopnaelse String
+  fag           Fag[]
 
-//   @@map("karakter")
-// }
+  @@map("karakter")
+}
 
-// model Fag {
-//   fagKode  Int       @id @default(autoincrement())
-//   fagNavn  String
-//   lId      Int
-//   kId      Int
-//   elevFag  ElevFag[]
-//   karakter Karakter  @relation(fields: [kId], references: [kId])
-//   laerer   Laerer    @relation(fields: [lId], references: [lId])
+model Fag {
+  fagKode  Int       @id @default(autoincrement())
+  fagNavn  String
+  lId      Int
+  kId      Int
+  elevFag  ElevFag[]
+  karakter Karakter  @relation(fields: [kId], references: [kId])
+  laerer   Laerer    @relation(fields: [lId], references: [lId])
 
-//   @@map("fag")
-// }
+  @@map("fag")
+}
 
-// model ElevFag {
-//   eId     Int
-//   fagKode Int
-//   elev    Elev @relation(fields: [eId], references: [eId])
-//   fag     Fag  @relation(fields: [fagKode], references: [fagKode])
+model ElevFag {
+  eId     Int
+  fagKode Int
+  elev    Elev @relation(fields: [eId], references: [eId])
+  fag     Fag  @relation(fields: [fagKode], references: [fagKode])
 
-//   @@id([eId, fagKode])
-//   @@map("elevFag")
-// }
+  @@id([eId, fagKode])
+  @@map("elevFag")
+}
 
-// model Fravaer {
-//   dato DateTime @id
-//   eId  Int
-//   elev Elev     @relation(fields: [eId], references: [eId])
+model Fravaer {
+  dato DateTime @id
+  eId  Int
+  elev Elev     @relation(fields: [eId], references: [eId])
 
-//   @@map("fravaer")
-// }
+  @@map("fravaer")
+}
 
-// model Anmerkning {
-//   aId          Int      @id @default(autoincrement())
-//   aBeskrivelse Int
-//   kategori     Boolean
-//   eId          Int
-//   dato         DateTime
-//   elev         Elev     @relation(fields: [eId], references: [eId])
+model Anmerkning {
+  aId          Int      @id @default(autoincrement())
+  aBeskrivelse Int
+  kategori     Boolean
+  eId          Int
+  dato         DateTime
+  elev         Elev     @relation(fields: [eId], references: [eId])
 
-//   @@map("anmerkning")
-// }
+  @@map("anmerkning")
+}
