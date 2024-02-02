@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 
 import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
-import Component from "@/components/dashboard/studentDashboard";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "bg-background text-foreground font-sans antialiased overflow-x-hidden scroll-smooth",
+          "bg-background text-foreground font-sans antialiased overflow-hidden scroll-smooth ",
           inter.className
         )}
       >

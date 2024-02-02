@@ -1,5 +1,5 @@
-import Component from "@/components/dashboard/studentDashboard";
+import { sql } from "@vercel/postgres";
 
-export default function teacherPage() {
-  return <Component />;
+export default async function student() {
+  return <h1>hello world</h1>;
 }

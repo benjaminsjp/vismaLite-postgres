@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import Component from "@/components/dashboard/studentDashboard";
+
 import Login from "@/components/login/login";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,8 +15,8 @@ import {
 export default function home() {
   return (
     <main>
-      <div className=" justify-center align-middle text-center m-20">
-        <h1 className=" text-2xl mb-5">vismaLite</h1>
+      <div className=" justify-center align-middle text-center m-20 mb-5">
+        <h1 className=" text-2xl ">vismaLite</h1>
       </div>
       <div className="flex">
         <div className="flex w-1/3"></div>

@@ -79,7 +79,7 @@ model Fravaer {
 
 model Anmerkning {
   aId          Int      @id @default(autoincrement())
-  aBeskrivelse Int
+  aBeskrivelse String
   kategori     Boolean
   eId          Int
   dato         DateTime
